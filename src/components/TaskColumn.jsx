@@ -2,7 +2,7 @@ import React from "react";
 import TaskCard from "./TaskCard";
 import { useDrop } from "react-dnd";
 
-function TaskColumn({ columnName, tasks, columnId, moveCard }) {
+function TaskColumn({ columnName, tasks, columnId, moveCard, deleteTask }) {
   const [, drop] = useDrop({
     accept: "card",
     drop: (item) => {
@@ -20,6 +20,7 @@ function TaskColumn({ columnName, tasks, columnId, moveCard }) {
       <h1 className="text-xl font-bold">{columnName}</h1>
       {tasks.map((task) => (
         <TaskCard
+          deleteTask={deleteTask}
           key={task.id}
           task={task}
           source={columnId} // Pass the current column ID as the source

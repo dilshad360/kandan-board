@@ -38,6 +38,12 @@ function KandanBoard() {
         if (destination === "done") setDone((prev) => [...prev, task]);
     };
 
+    const deleteTask = (columnId, taskId) => {
+        if (columnId === "todo") setTodo((prev) => prev.filter((t) => t.id !== taskId));
+        if (columnId === "inProgress") setInProgress((prev) => prev.filter((t) => t.id !== taskId));
+        if (columnId === "done") setDone((prev) => prev.filter((t) => t.id !== taskId));
+    }
+
     return (
         <div className="py-10 w-[70%] flex flex-col gap-2 h-screen">
             <div className="flex justify-between">
@@ -48,18 +54,21 @@ function KandanBoard() {
                     columnName="To Do"
                     tasks={todo}
                     columnId="todo"
+                    deleteTask={deleteTask}
                     moveCard={moveCard}
                 />
                 <TaskColumn
                     columnName="In Progress"
                     tasks={inProgress}
                     columnId="inProgress"
+                    deleteTask={deleteTask}
                     moveCard={moveCard}
                 />
                 <TaskColumn
                     columnName="Done"
                     tasks={done}
                     columnId="done"
+                    deleteTask={deleteTask}
                     moveCard={moveCard}
                 />
             </div>

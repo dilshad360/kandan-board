@@ -1,8 +1,10 @@
 import React from "react";
 import { Card, CardContent } from "./ui/card";
 import { useDrag } from "react-dnd";
+import { Button } from "./ui/button";
+import { Cross, Trash, X } from "lucide-react";
 
-function TaskCard({ task, source }) {
+function TaskCard({ task, source, deleteTask }) {
     const [{ isDragging }, drag] = useDrag(() => ({
         type: "card",
         item: { ...task, source },
@@ -14,10 +16,22 @@ function TaskCard({ task, source }) {
     return (
         <Card
             ref={drag}
-            className={`${isDragging ? "bg-pink-400" : "bg-slate-100"
-                } p-2 shadow-md rounded`}
+            className={`${isDragging ? "bg-pink-400" : ""
+                } p-2 shadow-md bg-slate-100 rounded hover:scale-[103%] transition duration-300 ease-in-out`}
         >
-            <CardContent className="p-2">{task.title}</CardContent>
+            <CardContent className="flex justify-between items-center px-2 py-0">
+                <h3>{task.title}</h3>
+                <Button
+                    variant="secondary"
+                    className="hover:bg-red-400"
+                    size="icon"
+                    onClick={() => {
+                        deleteTask(source, task.id);
+                    }}
+                >
+                    <X className="opacity-50"/>
+                </Button>
+            </CardContent>
         </Card>
     );
 }
