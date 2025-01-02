@@ -17,8 +17,10 @@ function App() {
 
   return (
     <DndProvider backend={HTML5Backend}>
+      <div className="flex justify-center">
         <KandanBoard/>
-      </DndProvider>
+    </div>
+    </DndProvider>
   )
 }
 

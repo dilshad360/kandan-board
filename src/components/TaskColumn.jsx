@@ -15,7 +15,7 @@ function TaskColumn({ columnName, tasks, columnId, moveCard }) {
   return (
     <div
       ref={drop}
-      className="border-2 border-blue-500 w-1/3 p-2 rounded-md h-full space-y-2"
+      className="border-2 border-gray-500 w-1/3 p-2 rounded-md h-full space-y-2"
     >
       <h1 className="text-xl font-bold">{columnName}</h1>
       {tasks.map((task) => (

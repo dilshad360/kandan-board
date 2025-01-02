@@ -1,24 +1,30 @@
 import React, { useState } from "react";
 import TaskColumn from "./TaskColumn";
+import AddTaskModal from "./AddTaskModal";
+
 
 const initialTasks = {
     todo: [
-        { id: "1", content: "Task 1" },
-        { id: "2", content: "Task 2" },
+        { id: "1", title: "Task 1" },
+        { id: "2", title: "Task 2" },
     ],
     inProgress: [
-        { id: "3", content: "Task 3" },
-        { id: "4", content: "Task 4" },
-    ],
-    done: [{ id: "5", content: "Task 5" }],
+        { id: "3", title: "Task 3" },
+        { id: "4", title: "Task 4" },
+    ], 
+    done: [{ id: "5", title: "Task 5" }],
 };
 
 function KandanBoard() {
 
-    
+
     const [todo, setTodo] = useState(initialTasks.todo);
     const [inProgress, setInProgress] = useState(initialTasks.inProgress);
     const [done, setDone] = useState(initialTasks.done);
+
+    const addNewTask = (content) => {
+        setTodo((prev) => [...prev, { id: Date.now().toString(), title: content.title, description: content.description }]);
+    };
 
     const moveCard = (source, destination, task) => {
         // Remove the task from the source column
@@ -33,25 +39,30 @@ function KandanBoard() {
     };
 
     return (
-        <div className="py-10 px-20 flex gap-2 h-screen">
-            <TaskColumn
-                columnName="To Do"
-                tasks={todo}
-                columnId="todo"
-                moveCard={moveCard}
-            />
-            <TaskColumn
-                columnName="In Progress"
-                tasks={inProgress}
-                columnId="inProgress"
-                moveCard={moveCard}
-            />
-            <TaskColumn
-                columnName="Done"
-                tasks={done}
-                columnId="done"
-                moveCard={moveCard}
-            />
+        <div className="py-10 w-[70%] flex flex-col gap-2 h-screen">
+            <div className="flex justify-between">
+            <AddTaskModal addNewTask={addNewTask} />
+            </div>
+            <div className="flex h-screen gap-3">
+                <TaskColumn
+                    columnName="To Do"
+                    tasks={todo}
+                    columnId="todo"
+                    moveCard={moveCard}
+                />
+                <TaskColumn
+                    columnName="In Progress"
+                    tasks={inProgress}
+                    columnId="inProgress"
+                    moveCard={moveCard}
+                />
+                <TaskColumn
+                    columnName="Done"
+                    tasks={done}
+                    columnId="done"
+                    moveCard={moveCard}
+                />
+            </div>
         </div>
     );
 }

@@ -17,7 +17,7 @@ function TaskCard({ task, source }) {
             className={`${isDragging ? "bg-pink-400" : "bg-slate-100"
                 } p-2 shadow-md rounded`}
         >
-            <CardContent>{task.content}</CardContent>
+            <CardContent className="p-2">{task.title}</CardContent>
         </Card>
     );
 }
