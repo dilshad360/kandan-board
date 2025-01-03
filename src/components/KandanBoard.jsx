@@ -1,26 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TaskColumn from "./TaskColumn";
 import AddTaskModal from "./AddTaskModal";
+import useLocalStorage from "@/hooks/useLocalStorage";
 
 
-const initialTasks = {
-    todo: [
-        { id: "1", title: "Task 1" },
-        { id: "2", title: "Task 2" },
-    ],
-    inProgress: [
-        { id: "3", title: "Task 3" },
-        { id: "4", title: "Task 4" },
-    ], 
-    done: [{ id: "5", title: "Task 5" }],
-};
 
 function KandanBoard() {
 
-
-    const [todo, setTodo] = useState(initialTasks.todo);
-    const [inProgress, setInProgress] = useState(initialTasks.inProgress);
-    const [done, setDone] = useState(initialTasks.done);
+    const [todo, setTodo] = useLocalStorage("todoTasks", []);
+    const [inProgress, setInProgress] = useLocalStorage("inProgressTasks", []);
+    const [done, setDone] = useLocalStorage("doneTasks", []);
 
     const addNewTask = (content) => {
         setTodo((prev) => [...prev, { id: Date.now().toString(), title: content.title, description: content.description }]);
@@ -47,7 +36,7 @@ function KandanBoard() {
     return (
         <div className="py-10 w-[70%] flex flex-col gap-2 h-screen">
             <div className="flex justify-between">
-            <AddTaskModal addNewTask={addNewTask} />
+                <AddTaskModal addNewTask={addNewTask} />
             </div>
             <div className="flex h-screen gap-3">
                 <TaskColumn

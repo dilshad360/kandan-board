@@ -2,7 +2,7 @@ import React from "react";
 import { Card, CardContent } from "./ui/card";
 import { useDrag } from "react-dnd";
 import { Button } from "./ui/button";
-import { Cross, Trash, X } from "lucide-react";
+import { X } from "lucide-react";
 
 function TaskCard({ task, source, deleteTask }) {
     const [{ isDragging }, drag] = useDrag(() => ({
