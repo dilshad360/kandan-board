@@ -3,6 +3,7 @@ import TaskColumn from "./TaskColumn";
 import AddTaskModal from "./modal/AddTaskModal";
 import useLocalStorage from "@/hooks/useLocalStorage";
 import { Input } from "./ui/input";
+import { handleConfetti } from "@/lib/confetti";
 
 function KandanBoard() {
     const [todo, setTodo] = useLocalStorage("todoTasks", []);
@@ -33,7 +34,7 @@ function KandanBoard() {
         // Add the task to the destination column
         if (destination === "todo") setTodo((prev) => [...prev, task]);
         if (destination === "inProgress") setInProgress((prev) => [...prev, task]);
-        if (destination === "done") setDone((prev) => [...prev, task]);
+        if (destination === "done") { setDone((prev) => [...prev, task]); handleConfetti() }
     };
 
     const deleteTask = (columnId, taskId) => {
