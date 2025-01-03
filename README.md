@@ -3,6 +3,8 @@
 
 A simple Kanban board built with React, using draggable cards for task management. The board supports task creation, moving tasks across columns (To Do, In Progress, Done), and persistent data using local storage.
 
+*"Kandan" isn't a typo—just a quirky name for this Kanban board!*
+
 ## Features
 
 * **Responsive Design**: Optimized for both desktop and mobile devices
