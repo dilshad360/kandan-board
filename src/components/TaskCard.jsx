@@ -22,14 +22,14 @@ function TaskCard({ task, source, deleteTask }) {
             <Card
                 onClick={() => { setIsOpen(true) }}
                 ref={drag}
-                className={`${isDragging ? "bg-pink-400" : ""
-                    } p-2 shadow-md bg-slate-100 rounded hover:scale-[103%] transition duration-300 ease-in-out`}
+                className={`${isDragging ? "opacity-50" : "opacity-100"
+                    } p-2 shadow-md bg-zinc-50  hover:scale-[103%] transition duration-300 ease-in-out`}
             >
                 <CardContent className="flex justify-between items-center px-2 py-0">
                     <h3>{task.title}</h3>
                     <Button
-                        variant="secondary"
                         className="hover:bg-red-400"
+                        variant="ghost"
                         size="icon"
                         onClick={() => {
                             deleteTask(source, task.id);

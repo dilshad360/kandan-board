@@ -40,7 +40,7 @@ function AddTaskModal({ addNewTask }) {
     return (
         <Dialog open={isOpen} onOpenChange={setIsOpen}>
             <DialogTrigger>
-                <Button>Add New Task</Button>
+                <Button  >Add New Task</Button>
             </DialogTrigger>
             <DialogContent>
                 <DialogHeader>
