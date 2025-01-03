@@ -1,3 +1,4 @@
+<img src="./public/logo.png" alt="Kanban Board" width="80">
 
 # Kandan Board 
 
@@ -7,14 +8,18 @@ A simple Kanban board built with React, using draggable cards for task managemen
 
 ## Features
 
-* **Responsive Design**: Optimized for both desktop and mobile devices
-* **Drag and Drop**: Cards can be moved between columns (To Do, In Progress, Done)
-* **Task Creation**: Easily add new tasks through a modal
-* **Local Storage**: Tasks and their states are persisted in the browser's local storage
+- **Drag and Drop**: Cards can be moved between columns (To Do, In Progress, Done).
+- **Task Creation**: Easily add new tasks through a modal.
+- **Search Filter**: Quickly search for tasks using a built-in search filter.
+- **Local Storage**: Tasks and their states are persisted in the browser's local storage.
+
+## Live Demo
+
+Check out the live demo here: [Live Demo](https://kandan-board-phi.vercel.app)
 
 ## Screenshots
 
-![Kanban Board](./screenshots/kanban-board.png)
+<img src="./public/screenshot.png" alt="Kanban Board" width="800">
 
 ## Prerequisites
 
@@ -25,7 +30,7 @@ A simple Kanban board built with React, using draggable cards for task managemen
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-username/kanban-board.git
+   git clone https://github.com/dilshad360/kandan-board.git
    ```
 
 2. **Navigate into the project folder**:
