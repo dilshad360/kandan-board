@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import TaskColumn from "./TaskColumn";
-import AddTaskModal from "./AddTaskModal";
+import AddTaskModal from "./modal/AddTaskModal";
 import useLocalStorage from "@/hooks/useLocalStorage";
 
 
