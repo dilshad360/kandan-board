@@ -25,8 +25,10 @@ function TaskCard({ task, source, deleteTask }) {
                 className={`${isDragging ? "opacity-50" : "opacity-100"
                     } p-2 shadow-md bg-zinc-50  hover:scale-[103%] transition duration-300 ease-in-out`}
             >
-                <CardContent className="flex justify-between items-center px-2 py-0">
+                <CardContent className="flex flex-col px-2 pt-0 pb-2">
+                    <div className="flex justify-between items-center">
                     <h3>{task.title}</h3>
+                    
                     <Button
                         className="hover:bg-red-400"
                         variant="ghost"
@@ -37,6 +39,8 @@ function TaskCard({ task, source, deleteTask }) {
                     >
                         <X className="opacity-50" />
                     </Button>
+                    </div>
+                    <p className="text-xs text-gray-500 line-clamp-1">{task.description}</p>
                 </CardContent>
             </Card>
             <ViewTaskModal task={task} isOpen={isOpen} onClose={() => setIsOpen(false)} />

@@ -40,12 +40,11 @@ function AddTaskModal({ addNewTask }) {
     return (
         <Dialog open={isOpen} onOpenChange={setIsOpen}>
             <DialogTrigger>
-                <Button  >Add New Task</Button>
+                <Button  >Create Task</Button>
             </DialogTrigger>
             <DialogContent>
                 <DialogHeader>
-                    <DialogTitle className="pb-6">Add New Task</DialogTitle>
-
+                    <DialogTitle className="pb-6">Create New Task</DialogTitle>
                     {/* Title Input */}
                     <Label className="pb-1">Title</Label>
                     <Input
