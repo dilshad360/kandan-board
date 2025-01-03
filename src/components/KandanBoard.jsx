@@ -51,7 +51,7 @@ function KandanBoard() {
         );
 
     return (
-        <div className="py-10 w-[70%] flex flex-col gap-2 h-screen">
+        <div className="py-10 md:w-[90%] lg:w-[70%] flex flex-col gap-2 h-screen">
             <h1 className="text-3xl font-bold">Kandan Board</h1>
             <div className="flex justify-between">
                 <Input
